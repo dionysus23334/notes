@@ -16,3 +16,7 @@ https://dionysus23334.github.io/notes/
 ## 本地预览
 
 直接打开 `index.html`，或在项目目录启动任意静态文件服务器。
+
+## 发布
+
+本仓库通过 GitHub Actions 自动部署到 GitHub Pages。
