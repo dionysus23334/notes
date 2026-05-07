@@ -6,6 +6,7 @@ const dictionary = {
     brandSubtitle: "知识画廊",
     navGallery: "画廊",
     navNote: "笔记",
+    navPaths: "路径",
     navReview: "复习",
     eyebrow: "双语知识画廊",
     heroTitle: "把知识做成可以慢慢逛的画廊。",
@@ -46,6 +47,7 @@ const dictionary = {
     summaryTitle: "一句话定义",
     summaryText: "计算机硬件指组成计算机系统的<strong>物理部件</strong>，负责输入、输出、处理、存储和通信；软件则是告诉硬件做什么的程序和指令。",
     summaryLine: "硬件是看得见、摸得到的实体；软件是无形的指令。两者配合，计算机才能工作。",
+    magnetTip: "机械硬盘靠磁性，固态硬盘靠电荷。",
     coreTitle: "核心四件套",
     coreText: "<strong>CPU</strong> 处理指令，<strong>RAM</strong> 临时保存正在使用的数据，<strong>存储设备</strong> 长期保存文件，<strong>主板</strong> 连接所有内部组件。",
     inputTitle: "输入与输出",
@@ -78,6 +80,7 @@ const dictionary = {
     brandSubtitle: "Knowledge Gallery",
     navGallery: "Gallery",
     navNote: "Note",
+    navPaths: "Paths",
     navReview: "Review",
     eyebrow: "Bilingual Knowledge Gallery",
     heroTitle: "A calm gallery for notes.",
@@ -118,6 +121,7 @@ const dictionary = {
     summaryTitle: "One-sentence definition",
     summaryText: "Computer hardware means the <strong>physical components</strong> that make up a computer system and handle input, output, processing, storage, and communication. Software is the set of programs and instructions that tells hardware what to do.",
     summaryLine: "Hardware is tangible. Software is intangible instructions. A computer works when both cooperate.",
+    magnetTip: "HDDs use magnetism. SSDs use flash charges.",
     coreTitle: "The core set",
     coreText: "The <strong>CPU</strong> processes instructions, <strong>RAM</strong> temporarily holds active data, <strong>storage</strong> keeps files long term, and the <strong>system board</strong> connects internal components.",
     inputTitle: "Input and output",
@@ -146,8 +150,11 @@ const dictionary = {
 };
 
 const html = document.documentElement;
+const body = document.body;
 const languageToggle = document.querySelector("#languageToggle");
+const languageToggleMobile = document.querySelector("#languageToggleMobile");
 const themeToggle = document.querySelector("#themeToggle");
+const themeToggleMobile = document.querySelector("#themeToggleMobile");
 const filterButtons = document.querySelectorAll(".filter-chip");
 const cards = document.querySelectorAll("[data-category]");
 const reviewButton = document.querySelector("#reviewButton");
@@ -171,16 +178,22 @@ function applyLanguage(language) {
   });
 
   document.title = labels.pageTitle;
-  languageToggle.textContent = language === "zh" ? "EN" : "中";
-  languageToggle.setAttribute("aria-label", language === "zh" ? "Switch to English" : "切换到中文");
+  [languageToggle, languageToggleMobile].forEach((button) => {
+    if (!button) return;
+    button.textContent = language === "zh" ? "EN" : "中文";
+    button.setAttribute("aria-label", language === "zh" ? "Switch to English" : "切换到中文");
+  });
   localStorage.setItem("study-nook-language", language);
 }
 
 function applyTheme(theme) {
   html.dataset.theme = theme;
-  html.classList.toggle("dark", theme === "night");
-  themeToggle.textContent = theme === "day" ? "☾" : "☼";
-  themeToggle.setAttribute("aria-label", theme === "day" ? "Switch to night theme" : "Switch to day theme");
+  body.classList.toggle("night-mode", theme === "night");
+  [themeToggle, themeToggleMobile].forEach((button) => {
+    if (!button) return;
+    button.textContent = theme === "day" ? "Night" : "Day";
+    button.setAttribute("aria-label", theme === "day" ? "Switch to night theme" : "Switch to day theme");
+  });
   localStorage.setItem("study-nook-theme", theme);
 }
 
@@ -200,7 +213,17 @@ languageToggle.addEventListener("click", () => {
   applyLanguage(nextLanguage);
 });
 
+languageToggleMobile?.addEventListener("click", () => {
+  const nextLanguage = html.lang === "zh-CN" ? "en" : "zh";
+  applyLanguage(nextLanguage);
+});
+
 themeToggle.addEventListener("click", () => {
+  const nextTheme = html.dataset.theme === "day" ? "night" : "day";
+  applyTheme(nextTheme);
+});
+
+themeToggleMobile?.addEventListener("click", () => {
   const nextTheme = html.dataset.theme === "day" ? "night" : "day";
   applyTheme(nextTheme);
 });

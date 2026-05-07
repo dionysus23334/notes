@@ -1,0 +1,209 @@
+[x-cloak] {
+  display: none;
+}
+
+[hidden] {
+  display: none !important;
+}
+
+.nav-link {
+  display: flex;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  color: #666;
+  transition: color 150ms ease-in-out;
+}
+
+.nav-link:hover {
+  color: #191919;
+}
+
+.filter-chip {
+  border-radius: 9999px;
+  border: 1px solid #dfdfdf;
+  background: #fff;
+  padding: 0.55rem 0.95rem;
+  color: #666;
+  font-weight: 700;
+  transition:
+    border-color 150ms ease,
+    color 150ms ease,
+    background 150ms ease;
+}
+
+.filter-chip:hover,
+.filter-chip.active {
+  border-color: #338cf5;
+  background: #e6f0fd;
+  color: #0064da;
+}
+
+.simple-note-board {
+  position: relative;
+  width: min(768px, 100%);
+}
+
+.simple-note-card {
+  position: absolute;
+  display: grid;
+  min-width: 10rem;
+  gap: 0.35rem;
+  border-radius: 0.5rem;
+  background: rgba(255, 255, 255, 0.94);
+  padding: 0.85rem 1rem;
+  box-shadow: 0 20px 50px rgba(25, 25, 25, 0.16);
+}
+
+.simple-note-card span {
+  color: #666;
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
+.simple-note-card strong {
+  color: #191919;
+  font-size: 1.25rem;
+  line-height: 1;
+}
+
+.simple-note-card.card-a {
+  left: 7%;
+  top: 14%;
+}
+
+.simple-note-card.card-b {
+  right: 8%;
+  top: 42%;
+}
+
+.simple-note-card.card-c {
+  left: 18%;
+  bottom: 10%;
+}
+
+.note-card {
+  transition:
+    transform 180ms ease,
+    box-shadow 180ms ease;
+}
+
+.note-card:hover {
+  transform: translateY(-4px);
+}
+
+.review-card {
+  border-radius: 0.25rem;
+  background: #fff;
+  padding: 1.5rem;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.12), 0 10px 10px -5px rgba(0, 0, 0, 0.02);
+}
+
+.review-card span {
+  display: inline-block;
+  margin-bottom: 1rem;
+  color: #338cf5;
+  font-weight: 900;
+}
+
+.review-card h3 {
+  margin-bottom: 0.5rem;
+  color: #191919;
+  font-size: 1.125rem;
+  font-weight: 800;
+}
+
+.review-card p {
+  color: #666;
+  line-height: 1.65;
+}
+
+.path-panel {
+  display: grid;
+  min-width: min(22rem, 100%);
+  gap: 0.65rem;
+}
+
+.path-panel div {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 1rem;
+  border-radius: 0.25rem;
+  background: rgba(255, 255, 255, 0.16);
+  padding: 0.8rem 1rem;
+  color: #fff;
+}
+
+.path-panel em {
+  font-style: normal;
+  font-weight: 800;
+  opacity: 0.8;
+}
+
+.night-mode {
+  background: #111827;
+  color: #f9fafb;
+}
+
+.night-mode header,
+.night-mode #mobile-nav {
+  background: rgba(17, 24, 39, 0.94);
+}
+
+.night-mode .nav-link,
+.night-mode .text-gray-600 {
+  color: #d1d5db;
+}
+
+.night-mode .text-gray-900,
+.night-mode .h1,
+.night-mode .h2,
+.night-mode .h3,
+.night-mode .h4 {
+  color: #fff;
+}
+
+.night-mode .bg-white,
+.night-mode .note-card,
+.night-mode .review-card {
+  background: #1f2937;
+}
+
+.night-mode .bg-gray-100 {
+  background: #111827;
+}
+
+.night-mode .border-gray-200 {
+  border-color: #374151;
+}
+
+.night-mode .simple-note-card {
+  background: rgba(31, 41, 55, 0.94);
+}
+
+.night-mode .simple-note-card strong,
+.night-mode .review-card h3 {
+  color: #fff;
+}
+
+.night-mode .simple-note-card span,
+.night-mode .review-card p {
+  color: #d1d5db;
+}
+
+@media (max-width: 640px) {
+  .simple-note-card {
+    min-width: 8.5rem;
+  }
+
+  .simple-note-card.card-a {
+    left: 4%;
+  }
+
+  .simple-note-card.card-b {
+    right: 4%;
+  }
+
+  .simple-note-card.card-c {
+    left: 10%;
+  }
+}

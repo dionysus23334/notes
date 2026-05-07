@@ -1,184 +1,256 @@
 <!doctype html>
-<html lang="zh-CN" class="scroll-smooth" data-theme="day">
+<html lang="zh-CN">
   <head>
     <meta charset="utf-8" />
+    <title>温习小屋 - 知识画廊</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta
       name="description"
       content="温习小屋是一个双语知识画廊，用来整理学习笔记、复习卡片和学习路径。"
     />
-    <title>温习小屋 | 知识画廊</title>
-    <script>
-      tailwind = {
-        config: {
-          darkMode: "class",
-          theme: {
-            extend: {
-              colors: {
-                ink: "#1f2a44",
-                mist: "#eef4ff",
-                coral: "#ef9eb5",
-                honey: "#e6bd63"
-              },
-              boxShadow: {
-                soft: "0 24px 80px rgba(31, 42, 68, 0.12)"
-              }
-            }
-          }
-        }
-      };
-    </script>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="styles.css" />
+    <link href="./css/vendors/aos.css" rel="stylesheet" />
+    <link href="./style.css" rel="stylesheet" />
+    <link href="./notes.css" rel="stylesheet" />
   </head>
-  <body class="bg-slate-50 text-slate-900 antialiased dark:bg-slate-950 dark:text-slate-100">
-    <div class="min-h-screen overflow-hidden">
-      <header class="fixed inset-x-0 top-0 z-30 border-b border-slate-200/80 bg-white/75 backdrop-blur-xl dark:border-slate-800 dark:bg-slate-950/70">
-        <div class="mx-auto flex h-16 max-w-7xl items-center justify-between gap-4 px-4 sm:px-6 lg:h-20">
-          <a class="flex items-center gap-3" href="#" aria-label="Study Nook home">
-            <span class="grid h-9 w-9 place-items-center rounded-lg bg-ink text-sm font-black text-white dark:bg-white dark:text-slate-950" data-i18n="brandMark">知</span>
-            <span class="hidden min-[420px]:block">
-              <strong class="block text-sm font-extrabold leading-tight tracking-normal" data-i18n="brandTitle">温习小屋</strong>
-              <em class="block text-xs not-italic text-slate-500 dark:text-slate-400" data-i18n="brandSubtitle">知识画廊</em>
-            </span>
-          </a>
 
-          <nav class="flex items-center gap-1 rounded-full border border-slate-200 bg-white p-1 text-sm text-slate-500 shadow-sm dark:border-slate-800 dark:bg-slate-900 dark:text-slate-400" aria-label="Primary">
-            <a class="rounded-full px-3 py-1.5 hover:bg-slate-100 hover:text-slate-950 dark:hover:bg-slate-800 dark:hover:text-white" href="#gallery" data-i18n="navGallery">画廊</a>
-            <a class="rounded-full px-3 py-1.5 hover:bg-slate-100 hover:text-slate-950 dark:hover:bg-slate-800 dark:hover:text-white" href="#featured-note" data-i18n="navNote">笔记</a>
-            <a class="rounded-full px-3 py-1.5 hover:bg-slate-100 hover:text-slate-950 dark:hover:bg-slate-800 dark:hover:text-white" href="#review" data-i18n="navReview">复习</a>
-          </nav>
+  <body class="font-inter antialiased bg-white text-gray-900 tracking-tight">
+    <div class="flex flex-col min-h-screen overflow-hidden supports-[overflow:clip]:overflow-clip">
+      <header class="fixed w-full z-30 md:bg-opacity-90 transition duration-300 ease-in-out" x-data="{ top: true }" @scroll.window="top = window.pageYOffset < 10" :class="{ 'bg-white backdrop-blur-sm shadow-lg' : !top }">
+        <div class="max-w-6xl mx-auto px-5 sm:px-6">
+          <div class="flex items-center justify-between h-16 md:h-20">
+            <a class="flex items-center gap-3 shrink-0 mr-4" href="#" aria-label="Study Nook home">
+              <svg class="w-8 h-8" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <defs>
+                  <radialGradient cx="21.152%" cy="86.063%" fx="21.152%" fy="86.063%" r="79.941%" id="header-logo">
+                    <stop stop-color="#4FD1C5" offset="0%" />
+                    <stop stop-color="#81E6D9" offset="25.871%" />
+                    <stop stop-color="#338CF5" offset="100%" />
+                  </radialGradient>
+                </defs>
+                <rect width="32" height="32" rx="16" fill="url(#header-logo)" fill-rule="nonzero" />
+              </svg>
+              <span class="hidden sm:block">
+                <strong class="block text-sm font-extrabold leading-tight" data-i18n="brandTitle">温习小屋</strong>
+                <em class="block text-xs text-gray-500 not-italic" data-i18n="brandSubtitle">知识画廊</em>
+              </span>
+            </a>
 
-          <div class="flex justify-end gap-2">
-            <button class="grid h-9 w-9 place-items-center rounded-lg border border-slate-200 bg-white text-sm font-bold text-slate-700 shadow-sm hover:border-blue-300 hover:text-blue-700 dark:border-slate-800 dark:bg-slate-900 dark:text-slate-300" id="languageToggle" type="button" aria-label="Switch language">文</button>
-            <button class="grid h-9 w-9 place-items-center rounded-lg border border-slate-200 bg-white text-sm font-bold text-slate-700 shadow-sm hover:border-blue-300 hover:text-blue-700 dark:border-slate-800 dark:bg-slate-900 dark:text-slate-300" id="themeToggle" type="button" aria-label="Switch theme">☼</button>
+            <nav class="hidden md:flex md:grow">
+              <ul class="flex grow justify-end flex-wrap items-center">
+                <li><a class="nav-link" href="#gallery" data-i18n="navGallery">画廊</a></li>
+                <li><a class="nav-link" href="#featured-note" data-i18n="navNote">笔记</a></li>
+                <li><a class="nav-link" href="#paths" data-i18n="navPaths">路径</a></li>
+                <li><a class="nav-link" href="#review" data-i18n="navReview">复习</a></li>
+              </ul>
+              <ul class="flex justify-end flex-wrap items-center">
+                <li><button class="font-medium text-gray-600 hover:text-gray-900 px-4 py-3 transition duration-150 ease-in-out" id="languageToggle" type="button">EN</button></li>
+                <li><button class="btn-sm text-gray-200 bg-gray-900 hover:bg-gray-800 ml-2" id="themeToggle" type="button">Night</button></li>
+              </ul>
+            </nav>
+
+            <div class="flex md:hidden" x-data="{ expanded: false }">
+              <button class="hamburger" :class="{ 'active': expanded }" @click.stop="expanded = !expanded" aria-controls="mobile-nav" :aria-expanded="expanded">
+                <span class="sr-only">Menu</span>
+                <svg class="w-6 h-6 fill-current text-gray-900" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <rect y="4" width="24" height="2" />
+                  <rect y="11" width="24" height="2" />
+                  <rect y="18" width="24" height="2" />
+                </svg>
+              </button>
+              <nav id="mobile-nav" class="absolute top-full h-screen pb-16 z-20 left-0 w-full overflow-scroll bg-white" @click.outside="expanded = false" @keydown.escape.window="expanded = false" x-show="expanded" x-transition x-cloak>
+                <ul class="px-5 py-2">
+                  <li><a class="flex text-gray-600 hover:text-gray-900 py-2" href="#gallery" data-i18n="navGallery">画廊</a></li>
+                  <li><a class="flex text-gray-600 hover:text-gray-900 py-2" href="#featured-note" data-i18n="navNote">笔记</a></li>
+                  <li><a class="flex text-gray-600 hover:text-gray-900 py-2" href="#paths" data-i18n="navPaths">路径</a></li>
+                  <li><a class="flex text-gray-600 hover:text-gray-900 py-2" href="#review" data-i18n="navReview">复习</a></li>
+                  <li class="py-2 my-2 border-t border-gray-200"><button class="flex text-gray-600 hover:text-gray-900 py-2" id="languageToggleMobile" type="button">English</button></li>
+                  <li><button class="btn-sm text-gray-200 bg-gray-900 hover:bg-gray-800 w-full my-2" id="themeToggleMobile" type="button">Night</button></li>
+                </ul>
+              </nav>
+            </div>
           </div>
         </div>
       </header>
 
-      <main class="mx-auto max-w-7xl px-4 pt-24 sm:px-6 lg:pt-28">
-        <section class="grid min-h-[calc(100vh-7rem)] items-center gap-10 py-10 lg:grid-cols-[0.9fr_1.1fr] lg:gap-16">
-          <div class="max-w-2xl">
-            <div class="mb-5 inline-flex items-center gap-2 rounded-full border border-blue-200 bg-blue-50 px-3 py-1 text-xs font-bold uppercase tracking-normal text-blue-700 dark:border-blue-500/30 dark:bg-blue-500/10 dark:text-blue-200">
-              <span class="h-1.5 w-1.5 rounded-full bg-blue-500"></span>
-              <span data-i18n="eyebrow">双语知识画廊</span>
-            </div>
-            <h1 class="max-w-[11ch] text-5xl font-black leading-[0.96] tracking-normal text-slate-950 sm:text-6xl lg:text-7xl dark:text-white" data-i18n="heroTitle">把知识做成可以慢慢逛的画廊。</h1>
-            <p class="mt-6 max-w-xl text-base leading-8 text-slate-600 dark:text-slate-300" data-i18n="heroText">每篇笔记都像一张作品卡：主题清楚、重点可扫、复习入口固定。上百篇内容也不需要把导航栏挤满。</p>
-            <div class="mt-8 flex flex-wrap gap-3">
-              <a class="inline-flex min-h-11 items-center rounded-lg bg-slate-950 px-5 text-sm font-extrabold text-white shadow-soft hover:bg-blue-700 dark:bg-white dark:text-slate-950" href="#gallery" data-i18n="startReading">进入画廊</a>
-              <a class="inline-flex min-h-11 items-center rounded-lg border border-slate-200 bg-white px-5 text-sm font-extrabold text-slate-700 shadow-sm hover:border-blue-300 hover:text-blue-700 dark:border-slate-800 dark:bg-slate-900 dark:text-slate-200" href="#featured-note" data-i18n="seeFeatured">查看精选</a>
-            </div>
+      <main class="grow">
+        <section class="relative">
+          <div class="absolute left-1/2 transform -translate-x-1/2 bottom-0 pointer-events-none -z-1" aria-hidden="true">
+            <svg width="1360" height="578" viewBox="0 0 1360 578" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="hero-ill-a">
+                  <stop stop-color="#FFF" offset="0%" />
+                  <stop stop-color="#EAEAEA" offset="77.402%" />
+                  <stop stop-color="#DFDFDF" offset="100%" />
+                </linearGradient>
+              </defs>
+              <g fill="url(#hero-ill-a)" fill-rule="evenodd">
+                <circle cx="1232" cy="128" r="128" />
+                <circle cx="155" cy="443" r="64" />
+              </g>
+            </svg>
           </div>
 
-          <div class="gallery-scene" aria-label="Knowledge gallery preview">
-            <div class="scene-card card-a">
-              <span data-i18n="sceneOneKind">计算机基础</span>
-              <strong data-i18n="sceneOneTitle">硬件</strong>
-              <i></i>
-            </div>
-            <div class="scene-card card-b">
-              <span data-i18n="sceneTwoKind">语言学习</span>
-              <strong data-i18n="sceneTwoTitle">阅读</strong>
-              <i></i>
-            </div>
-            <div class="scene-card card-c">
-              <span data-i18n="sceneThreeKind">思维训练</span>
-              <strong data-i18n="sceneThreeTitle">模型</strong>
-              <i></i>
+          <div class="max-w-6xl mx-auto px-4 sm:px-6">
+            <div class="pt-32 pb-12 md:pt-40 md:pb-20">
+              <div class="text-center pb-12 md:pb-16">
+                <div class="inline-flex text-sm font-semibold py-1 px-3 m-2 text-teal-600 bg-teal-100 rounded-full mb-4" data-aos="zoom-y-out" data-i18n="eyebrow">双语知识画廊</div>
+                <h1 class="h1 mb-4" data-aos="zoom-y-out" data-aos-delay="150" data-i18n="heroTitle">把知识做成可以慢慢逛的画廊。</h1>
+                <div class="max-w-3xl mx-auto">
+                  <p class="text-xl text-gray-600 mb-8" data-aos="zoom-y-out" data-aos-delay="300" data-i18n="heroText">每篇笔记都像一张作品卡：主题清楚、重点可扫、复习入口固定。上百篇内容也不需要把导航栏挤满。</p>
+                  <div class="max-w-xs mx-auto sm:max-w-none sm:flex sm:justify-center" data-aos="zoom-y-out" data-aos-delay="450">
+                    <div><a class="btn text-white bg-blue-600 hover:bg-blue-700 w-full mb-4 sm:w-auto sm:mb-0" href="#gallery" data-i18n="startReading">进入画廊</a></div>
+                    <div><a class="btn text-white bg-gray-900 hover:bg-gray-800 w-full sm:w-auto sm:ml-4" href="#featured-note" data-i18n="seeFeatured">查看精选</a></div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="relative flex justify-center mb-8" data-aos="zoom-y-out" data-aos-delay="600">
+                <div class="simple-note-board">
+                  <img class="mx-auto rounded shadow-xl" src="./images/hero-image-01.png" width="768" height="432" alt="Simple template preview" />
+                  <div class="simple-note-card card-a">
+                    <span data-i18n="sceneOneKind">计算机基础</span>
+                    <strong data-i18n="sceneOneTitle">硬件</strong>
+                  </div>
+                  <div class="simple-note-card card-b">
+                    <span data-i18n="sceneTwoKind">语言学习</span>
+                    <strong data-i18n="sceneTwoTitle">阅读</strong>
+                  </div>
+                  <div class="simple-note-card card-c">
+                    <span data-i18n="sceneThreeKind">思维训练</span>
+                    <strong data-i18n="sceneThreeTitle">模型</strong>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </section>
 
-        <section class="scroll-mt-24 py-12" id="gallery">
-          <div class="max-w-2xl">
-            <p class="text-xs font-black uppercase tracking-normal text-blue-700 dark:text-blue-300" data-i18n="galleryEyebrow">笔记画廊</p>
-            <h2 class="mt-3 text-3xl font-black tracking-normal text-slate-950 sm:text-4xl dark:text-white" data-i18n="galleryTitle">所有笔记先进入画廊，再进入详情</h2>
-            <p class="mt-4 leading-8 text-slate-600 dark:text-slate-300" data-i18n="galleryText">顶部导航只放长期稳定的入口；具体笔记通过卡片、标签、路径和搜索来管理。</p>
-          </div>
+        <section class="relative" id="gallery">
+          <div class="absolute inset-0 bg-gray-100 pointer-events-none mb-16" aria-hidden="true"></div>
+          <div class="relative max-w-6xl mx-auto px-4 sm:px-6">
+            <div class="py-12 md:py-20">
+              <div class="max-w-3xl mx-auto text-center pb-12 md:pb-16">
+                <h2 class="h2 mb-4" data-i18n="galleryTitle">所有笔记先进入画廊，再进入详情</h2>
+                <p class="text-xl text-gray-600" data-i18n="galleryText">顶部导航只放长期稳定的入口；具体笔记通过卡片、标签、路径和搜索来管理。</p>
+              </div>
 
-          <div class="mt-8 flex flex-wrap gap-2">
-            <button class="filter-chip active" type="button" data-filter="all" data-i18n="filterAll">全部</button>
-            <button class="filter-chip" type="button" data-filter="computer" data-i18n="filterComputer">计算机</button>
-            <button class="filter-chip" type="button" data-filter="language" data-i18n="filterLanguage">语言</button>
-            <button class="filter-chip" type="button" data-filter="thinking" data-i18n="filterThinking">思维</button>
-          </div>
+              <div class="flex flex-wrap justify-center gap-2 mb-10">
+                <button class="filter-chip active" type="button" data-filter="all" data-i18n="filterAll">全部</button>
+                <button class="filter-chip" type="button" data-filter="computer" data-i18n="filterComputer">计算机</button>
+                <button class="filter-chip" type="button" data-filter="language" data-i18n="filterLanguage">语言</button>
+                <button class="filter-chip" type="button" data-filter="thinking" data-i18n="filterThinking">思维</button>
+              </div>
 
-          <div class="mt-5 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
-            <a class="note-card md:col-span-2" href="#featured-note" data-category="computer">
-              <span class="note-kind" data-i18n="cardHardwareKind">计算机基础</span>
-              <h3 data-i18n="cardHardwareTitle">什么是计算机硬件？</h3>
-              <p data-i18n="cardHardwareText">硬件定义、内部与外部组件、机械硬盘与固态硬盘、硬件与软件辨析。</p>
-              <div class="card-meta"><span data-i18n="cardTime12">12 分钟</span><span data-i18n="cardReviewReady">可复习</span></div>
-            </a>
+              <div class="max-w-sm mx-auto grid gap-6 md:grid-cols-3 lg:grid-cols-3 items-start md:max-w-2xl lg:max-w-none">
+                <a class="relative flex flex-col items-center p-6 bg-white rounded shadow-xl note-card" href="#featured-note" data-category="computer">
+                  <div class="w-16 h-16 p-1 -mt-1 mb-2">
+                    <svg class="w-16 h-16" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg"><rect class="fill-current text-blue-600" width="64" height="64" rx="32"/><path class="stroke-current text-white" d="M20 26h24M20 34h24M20 42h16" stroke-width="2" fill="none"/></svg>
+                  </div>
+                  <span class="text-sm font-semibold text-blue-600 mb-2" data-i18n="cardHardwareKind">计算机基础</span>
+                  <h3 class="h4 mb-2 text-center" data-i18n="cardHardwareTitle">什么是计算机硬件？</h3>
+                  <p class="text-lg text-gray-600 text-center" data-i18n="cardHardwareText">硬件定义、内部与外部组件、机械硬盘与固态硬盘、硬件与软件辨析。</p>
+                </a>
 
-            <article class="note-card" data-category="language">
-              <span class="note-kind" data-i18n="cardReadingKind">英语阅读</span>
-              <h3 data-i18n="cardReadingTitle">阅读日志模板</h3>
-              <p data-i18n="cardReadingText">预留给摘录、词汇、句型、复述和主题总结。</p>
-              <div class="card-meta"><span data-i18n="cardTemplate">模板</span><span data-i18n="cardDraft">草稿</span></div>
-            </article>
+                <article class="relative flex flex-col items-center p-6 bg-white rounded shadow-xl note-card" data-category="language">
+                  <div class="w-16 h-16 p-1 -mt-1 mb-2">
+                    <svg class="w-16 h-16" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg"><rect class="fill-current text-teal-500" width="64" height="64" rx="32"/><path class="stroke-current text-white" d="M24 20h16v24H24zM28 26h8M28 32h8" stroke-width="2" fill="none"/></svg>
+                  </div>
+                  <span class="text-sm font-semibold text-teal-600 mb-2" data-i18n="cardReadingKind">英语阅读</span>
+                  <h3 class="h4 mb-2 text-center" data-i18n="cardReadingTitle">阅读日志模板</h3>
+                  <p class="text-lg text-gray-600 text-center" data-i18n="cardReadingText">预留给摘录、词汇、句型、复述和主题总结。</p>
+                </article>
 
-            <article class="note-card" data-category="thinking">
-              <span class="note-kind" data-i18n="cardThinkingKind">思维模型</span>
-              <h3 data-i18n="cardThinkingTitle">第一性原理</h3>
-              <p data-i18n="cardThinkingText">把复杂问题拆回基本事实，再重新组织判断。</p>
-              <div class="card-meta"><span data-i18n="cardTime6">6 分钟</span><span data-i18n="cardComingSoon">待整理</span></div>
-            </article>
-          </div>
-        </section>
-
-        <article class="scroll-mt-24 border-t border-slate-200 py-12 dark:border-slate-800" id="featured-note">
-          <div class="flex flex-col justify-between gap-4 sm:flex-row sm:items-start">
-            <div>
-              <p class="text-xs font-black uppercase tracking-normal text-blue-700 dark:text-blue-300" data-i18n="featuredEyebrow">精选笔记</p>
-              <h2 class="mt-3 text-3xl font-black tracking-normal text-slate-950 sm:text-4xl dark:text-white" data-i18n="hardwareTitle">什么是计算机硬件？</h2>
+                <article class="relative flex flex-col items-center p-6 bg-white rounded shadow-xl note-card" data-category="thinking">
+                  <div class="w-16 h-16 p-1 -mt-1 mb-2">
+                    <svg class="w-16 h-16" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg"><rect class="fill-current text-blue-800" width="64" height="64" rx="32"/><path class="stroke-current text-white" d="M32 18v28M22 28h20M26 38h12" stroke-width="2" fill="none"/></svg>
+                  </div>
+                  <span class="text-sm font-semibold text-blue-700 mb-2" data-i18n="cardThinkingKind">思维模型</span>
+                  <h3 class="h4 mb-2 text-center" data-i18n="cardThinkingTitle">第一性原理</h3>
+                  <p class="text-lg text-gray-600 text-center" data-i18n="cardThinkingText">把复杂问题拆回基本事实，再重新组织判断。</p>
+                </article>
+              </div>
             </div>
-            <span class="w-fit rounded-full border border-slate-200 bg-white px-3 py-1 text-sm font-bold text-slate-500 dark:border-slate-800 dark:bg-slate-900 dark:text-slate-300" data-i18n="hardwareTag">计算机基础</span>
-          </div>
-
-          <section class="mt-6 rounded-lg border border-slate-200 bg-white p-5 shadow-sm dark:border-slate-800 dark:bg-slate-900">
-            <h3 class="font-black text-slate-950 dark:text-white" data-i18n="summaryTitle">一句话定义</h3>
-            <p class="mt-3 leading-8 text-slate-600 dark:text-slate-300" data-i18n-html="summaryText">计算机硬件指组成计算机系统的<strong>物理部件</strong>，负责输入、输出、处理、存储和通信；软件则是告诉硬件做什么的程序和指令。</p>
-            <p class="mt-2 leading-8 text-slate-600 dark:text-slate-300" data-i18n="summaryLine">硬件是看得见、摸得到的实体；软件是无形的指令。两者配合，计算机才能工作。</p>
-          </section>
-
-          <section class="mt-4 grid gap-4 md:grid-cols-2 xl:grid-cols-4" aria-label="Hardware review cards">
-            <div class="review-card"><span>01</span><h3 data-i18n="coreTitle">核心四件套</h3><p data-i18n-html="coreText"><strong>CPU</strong> 处理指令，<strong>RAM</strong> 临时保存正在使用的数据，<strong>存储设备</strong> 长期保存文件，<strong>主板</strong> 连接所有内部组件。</p></div>
-            <div class="review-card"><span>02</span><h3 data-i18n="inputTitle">输入与输出</h3><p data-i18n="inputText">键盘、鼠标、触摸屏、扫描仪属于输入设备；显示器、打印机、扬声器属于输出设备。它们让人和计算机交流。</p></div>
-            <div class="review-card"><span>03</span><h3 data-i18n="networkTitle">网络硬件</h3><p data-i18n="networkText">路由器、交换机、调制解调器、网卡让设备进入局域网或互联网，完成数据交换和系统通信。</p></div>
-            <div class="review-card"><span>04</span><h3 data-i18n="businessTitle">企业场景</h3><p data-i18n="businessText">企业硬件包括服务器、存储系统和网络设备，支撑数据流、云服务、人工智能计算和自动化。</p></div>
-          </section>
-        </article>
-
-        <section class="grid gap-8 border-t border-slate-200 py-12 lg:grid-cols-[0.8fr_1fr] dark:border-slate-800" id="paths">
-          <div>
-            <p class="text-xs font-black uppercase tracking-normal text-blue-700 dark:text-blue-300" data-i18n="pathsEyebrow">学习路径</p>
-            <h2 class="mt-3 text-3xl font-black tracking-normal text-slate-950 sm:text-4xl dark:text-white" data-i18n="pathsTitle">画廊负责收纳，路径负责推进</h2>
-            <p class="mt-4 leading-8 text-slate-600 dark:text-slate-300" data-i18n="pathsText">一篇笔记可以同时属于多个路径。以后可以按主题、阶段、考试、项目来组织，不需要改变顶部导航。</p>
-          </div>
-          <div class="rounded-lg border border-slate-200 bg-white p-4 shadow-sm dark:border-slate-800 dark:bg-slate-900">
-            <div class="path-row active"><span></span><strong data-i18n="pathOne">计算机基础</strong><em>68%</em></div>
-            <div class="path-row"><span></span><strong data-i18n="pathTwo">英语阅读</strong><em>42%</em></div>
-            <div class="path-row"><span></span><strong data-i18n="pathThree">思维模型</strong><em>25%</em></div>
           </div>
         </section>
 
-        <section class="flex flex-col gap-4 border-t border-slate-200 py-12 sm:flex-row sm:items-center sm:justify-between dark:border-slate-800" id="review">
-          <div>
-            <p class="text-xs font-black uppercase tracking-normal text-blue-700 dark:text-blue-300" data-i18n="reviewEyebrow">温柔复习</p>
-            <h2 class="mt-3 text-3xl font-black tracking-normal text-slate-950 sm:text-4xl dark:text-white" data-i18n="reviewTitle">今天只要捡起一点点</h2>
-            <p class="mt-3 min-h-8 font-bold text-blue-700 dark:text-blue-300" id="reviewPrompt"></p>
+        <section id="featured-note">
+          <div class="max-w-6xl mx-auto px-4 sm:px-6">
+            <div class="py-12 md:py-20 border-t border-gray-200">
+              <div class="md:grid md:grid-cols-12 md:gap-6 items-center">
+                <div class="max-w-xl md:max-w-none md:w-full mx-auto md:col-span-6 lg:col-span-5 mb-8 md:mb-0">
+                  <div class="md:pr-4 lg:pr-12 xl:pr-16">
+                    <div class="text-xl font-semibold text-blue-600 mb-2" data-i18n="featuredEyebrow">精选笔记</div>
+                    <h2 class="h2 mb-4" data-i18n="hardwareTitle">什么是计算机硬件？</h2>
+                    <p class="text-xl text-gray-600 mb-6" data-i18n-html="summaryText">计算机硬件指组成计算机系统的<strong>物理部件</strong>，负责输入、输出、处理、存储和通信；软件则是告诉硬件做什么的程序和指令。</p>
+                    <ul class="text-lg text-gray-600 -mb-2">
+                      <li class="flex items-center mb-2"><svg class="w-3 h-3 fill-current text-teal-500 mr-2 shrink-0" viewBox="0 0 12 12"><path d="M10.28 2.28L4 8.56 1.72 6.28.3 7.7 4 11.4 11.7 3.7z"/></svg><span data-i18n="summaryLine">硬件是看得见、摸得到的实体；软件是无形的指令。</span></li>
+                      <li class="flex items-center mb-2"><svg class="w-3 h-3 fill-current text-teal-500 mr-2 shrink-0" viewBox="0 0 12 12"><path d="M10.28 2.28L4 8.56 1.72 6.28.3 7.7 4 11.4 11.7 3.7z"/></svg><span data-i18n="magnetTip">机械硬盘靠磁性，固态硬盘靠电荷。</span></li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="max-w-xl md:max-w-none md:w-full mx-auto md:col-span-6 lg:col-span-7">
+                  <div class="relative flex flex-col text-center lg:text-right">
+                    <img class="md:max-w-none mx-auto rounded" src="./images/features-home-bg-01.png" width="500" height="375" alt="Features bg" />
+                    <img class="md:max-w-none absolute w-full left-0 transform animate-float" src="./images/features-home-element-01.png" width="500" height="147" alt="Element 01" style="top:22%" />
+                    <img class="md:max-w-none absolute w-full left-0 transform animate-float animation-delay-500" src="./images/features-home-element-02.png" width="500" height="158" alt="Element 02" style="top:39%" />
+                    <img class="md:max-w-none absolute w-full left-0 bottom-0 transform animate-float animation-delay-1000" src="./images/features-home-element-03.png" width="500" height="167" alt="Element 03" style="top:77%" />
+                  </div>
+                </div>
+              </div>
+
+              <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-4 mt-16">
+                <div class="review-card"><span>01</span><h3 data-i18n="coreTitle">核心四件套</h3><p data-i18n-html="coreText"><strong>CPU</strong> 处理指令，<strong>RAM</strong> 临时保存正在使用的数据，<strong>存储设备</strong> 长期保存文件，<strong>主板</strong> 连接所有内部组件。</p></div>
+                <div class="review-card"><span>02</span><h3 data-i18n="inputTitle">输入与输出</h3><p data-i18n="inputText">键盘、鼠标、触摸屏、扫描仪属于输入设备；显示器、打印机、扬声器属于输出设备。</p></div>
+                <div class="review-card"><span>03</span><h3 data-i18n="networkTitle">网络硬件</h3><p data-i18n="networkText">路由器、交换机、调制解调器、网卡让设备进入局域网或互联网。</p></div>
+                <div class="review-card"><span>04</span><h3 data-i18n="businessTitle">企业场景</h3><p data-i18n="businessText">服务器、存储系统和网络设备支撑数据流、云服务和自动化。</p></div>
+              </div>
+            </div>
           </div>
-          <button class="inline-flex min-h-11 w-fit items-center rounded-lg bg-slate-950 px-5 text-sm font-extrabold text-white shadow-soft hover:bg-blue-700 dark:bg-white dark:text-slate-950" id="reviewButton" type="button" data-i18n="reviewButton">抽一张复习卡</button>
+        </section>
+
+        <section id="paths">
+          <div class="max-w-6xl mx-auto px-4 sm:px-6">
+            <div class="pb-12 md:pb-20">
+              <div class="bg-blue-600 rounded py-10 px-8 md:py-16 md:px-12 shadow-2xl" data-aos="zoom-y-out">
+                <div class="flex flex-col lg:flex-row justify-between items-center">
+                  <div class="mb-6 lg:mr-16 lg:mb-0 text-center lg:text-left">
+                    <h3 class="h3 text-white mb-2" data-i18n="pathsTitle">画廊负责收纳，路径负责推进</h3>
+                    <p class="text-white text-lg opacity-75" data-i18n="pathsText">一篇笔记可以同时属于多个路径。以后可以按主题、阶段、考试、项目来组织。</p>
+                  </div>
+                  <div class="path-panel">
+                    <div><strong data-i18n="pathOne">计算机基础</strong><em>68%</em></div>
+                    <div><strong data-i18n="pathTwo">英语阅读</strong><em>42%</em></div>
+                    <div><strong data-i18n="pathThree">思维模型</strong><em>25%</em></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="review">
+          <div class="max-w-6xl mx-auto px-4 sm:px-6">
+            <div class="py-12 md:py-20 border-t border-gray-200 text-center">
+              <h2 class="h2 mb-4" data-i18n="reviewTitle">今天只要捡起一点点</h2>
+              <p class="text-xl text-gray-600 mb-8 min-h-8" id="reviewPrompt"></p>
+              <button class="btn text-white bg-gray-900 hover:bg-gray-800" id="reviewButton" type="button" data-i18n="reviewButton">抽一张复习卡</button>
+            </div>
+          </div>
         </section>
       </main>
 
-      <footer class="border-t border-slate-200 px-4 py-6 text-center text-sm text-slate-500 dark:border-slate-800 dark:text-slate-400">
-        <span data-i18n="footerText">为长期学习准备的温和起点。</span>
+      <footer>
+        <div class="max-w-6xl mx-auto px-4 sm:px-6">
+          <div class="py-8 md:py-12 border-t border-gray-200 text-center text-gray-600">
+            <span data-i18n="footerText">为长期学习准备的温和起点。</span>
+          </div>
+        </div>
       </footer>
     </div>
 
-    <script src="app.js"></script>
+    <script src="./js/vendors/alpinejs.min.js" defer></script>
+    <script src="./js/vendors/aos.js"></script>
+    <script src="./js/main.js"></script>
+    <script src="./app.js"></script>
   </body>
 </html>
