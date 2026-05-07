@@ -11,6 +11,12 @@ const dictionary = {
     heroTitle: "把知识做成可以慢慢逛的画廊。",
     heroText: "每篇笔记都像一张作品卡：主题清楚、重点可扫、复习入口固定。",
     startReading: "进入画廊",
+    sceneOneKind: "计算机基础",
+    sceneOneTitle: "硬件",
+    sceneTwoKind: "语言学习",
+    sceneTwoTitle: "阅读",
+    sceneThreeKind: "思维训练",
+    sceneThreeTitle: "模型",
     galleryEyebrow: "笔记画廊",
     galleryTitle: "先收纳，再深入",
     filterAll: "全部",
@@ -55,6 +61,12 @@ const dictionary = {
     heroTitle: "A calm gallery for notes.",
     heroText: "Each note becomes a clear card with a topic, quick scan points, and a fixed review entry.",
     startReading: "Enter Gallery",
+    sceneOneKind: "Computer Basics",
+    sceneOneTitle: "Hardware",
+    sceneTwoKind: "Language",
+    sceneTwoTitle: "Reading",
+    sceneThreeKind: "Thinking",
+    sceneThreeTitle: "Models",
     galleryEyebrow: "Note Gallery",
     galleryTitle: "Collect first, then go deeper",
     filterAll: "All",
@@ -104,16 +116,20 @@ function applyLanguage(language) {
   html.lang = language === "zh" ? "zh-CN" : "en";
   document.title = labels.pageTitle;
   document.querySelectorAll("[data-i18n]").forEach((node) => {
-    node.textContent = labels[node.dataset.i18n];
+    const value = labels[node.dataset.i18n];
+    if (value) node.textContent = value;
   });
   document.querySelectorAll("[data-i18n-html]").forEach((node) => {
-    node.innerHTML = labels[node.dataset.i18nHtml];
+    const value = labels[node.dataset.i18nHtml];
+    if (value) node.innerHTML = value;
   });
+  languageToggle.setAttribute("aria-label", language === "zh" ? "Switch to English" : "切换到中文");
   localStorage.setItem("notes-language", language);
 }
 
 function applyTheme(theme) {
   html.dataset.theme = theme;
+  themeToggle.setAttribute("aria-label", theme === "day" ? "Switch to night theme" : "Switch to day theme");
   localStorage.setItem("notes-theme", theme);
 }
 
