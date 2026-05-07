@@ -9,17 +9,48 @@
   </head>
   <body>
     <header class="topbar">
-      <a class="brand" href="#"><span data-i18n="brandMark">知</span><strong data-i18n="brandTitle">温习小屋</strong><em data-i18n="brandSubtitle">知识画廊</em></a>
-      <nav><a href="#gallery" data-i18n="navGallery">画廊</a><a href="#note" data-i18n="navNote">笔记</a><a href="#review" data-i18n="navReview">复习</a></nav>
-      <div class="tools"><button id="languageToggle" aria-label="Switch language">文</button><button id="themeToggle" aria-label="Switch theme">☼</button></div>
+      <a class="brand" href="#">
+        <span data-i18n="brandMark">知</span>
+        <strong data-i18n="brandTitle">温习小屋</strong>
+        <em data-i18n="brandSubtitle">知识画廊</em>
+      </a>
+      <nav>
+        <a href="#gallery" data-i18n="navGallery">画廊</a>
+        <a href="#note" data-i18n="navNote">笔记</a>
+        <a href="#review" data-i18n="navReview">复习</a>
+      </nav>
+      <div class="tools">
+        <button id="languageToggle" type="button" aria-label="Switch language">文</button>
+        <button id="themeToggle" type="button" aria-label="Switch theme">☼</button>
+      </div>
     </header>
 
     <main>
       <section class="hero">
-        <p class="eyebrow" data-i18n="eyebrow">双语知识画廊</p>
-        <h1 data-i18n="heroTitle">把知识做成可以慢慢逛的画廊。</h1>
-        <p data-i18n="heroText">每篇笔记都像一张作品卡：主题清楚、重点可扫、复习入口固定。</p>
-        <a class="action" href="#gallery" data-i18n="startReading">进入画廊</a>
+        <div class="hero-copy">
+          <p class="eyebrow" data-i18n="eyebrow">双语知识画廊</p>
+          <h1 data-i18n="heroTitle">把知识做成可以慢慢逛的画廊。</h1>
+          <p data-i18n="heroText">每篇笔记都像一张作品卡：主题清楚、重点可扫、复习入口固定。</p>
+          <a class="action" href="#gallery" data-i18n="startReading">进入画廊</a>
+        </div>
+
+        <div class="gallery-scene" aria-label="Knowledge gallery preview">
+          <div class="scene-card card-a">
+            <span data-i18n="sceneOneKind">计算机基础</span>
+            <strong data-i18n="sceneOneTitle">硬件</strong>
+            <i></i>
+          </div>
+          <div class="scene-card card-b">
+            <span data-i18n="sceneTwoKind">语言学习</span>
+            <strong data-i18n="sceneTwoTitle">阅读</strong>
+            <i></i>
+          </div>
+          <div class="scene-card card-c">
+            <span data-i18n="sceneThreeKind">思维训练</span>
+            <strong data-i18n="sceneThreeTitle">模型</strong>
+            <i></i>
+          </div>
+        </div>
       </section>
 
       <section id="gallery" class="section">
@@ -28,22 +59,37 @@
           <h2 data-i18n="galleryTitle">先收纳，再深入</h2>
         </div>
         <div class="filters">
-          <button class="filter active" data-filter="all" data-i18n="filterAll">全部</button>
-          <button class="filter" data-filter="computer" data-i18n="filterComputer">计算机</button>
-          <button class="filter" data-filter="language" data-i18n="filterLanguage">语言</button>
-          <button class="filter" data-filter="thinking" data-i18n="filterThinking">思维</button>
+          <button class="filter active" type="button" data-filter="all" data-i18n="filterAll">全部</button>
+          <button class="filter" type="button" data-filter="computer" data-i18n="filterComputer">计算机</button>
+          <button class="filter" type="button" data-filter="language" data-i18n="filterLanguage">语言</button>
+          <button class="filter" type="button" data-filter="thinking" data-i18n="filterThinking">思维</button>
         </div>
         <div class="cards">
-          <a class="card featured" href="#note" data-category="computer"><span data-i18n="cardHardwareKind">计算机基础</span><h3 data-i18n="cardHardwareTitle">什么是计算机硬件？</h3><p data-i18n="cardHardwareText">硬件定义、内部与外部组件、机械硬盘与固态硬盘、硬件与软件辨析。</p></a>
-          <article class="card" data-category="language"><span data-i18n="cardReadingKind">英语阅读</span><h3 data-i18n="cardReadingTitle">阅读日志模板</h3><p data-i18n="cardReadingText">摘录、词汇、句型、复述和主题总结。</p></article>
-          <article class="card" data-category="thinking"><span data-i18n="cardThinkingKind">思维模型</span><h3 data-i18n="cardThinkingTitle">第一性原理</h3><p data-i18n="cardThinkingText">把复杂问题拆回基本事实，再重新组织判断。</p></article>
+          <a class="card featured" href="#note" data-category="computer">
+            <span data-i18n="cardHardwareKind">计算机基础</span>
+            <h3 data-i18n="cardHardwareTitle">什么是计算机硬件？</h3>
+            <p data-i18n="cardHardwareText">硬件定义、内部与外部组件、机械硬盘与固态硬盘、硬件与软件辨析。</p>
+          </a>
+          <article class="card" data-category="language">
+            <span data-i18n="cardReadingKind">英语阅读</span>
+            <h3 data-i18n="cardReadingTitle">阅读日志模板</h3>
+            <p data-i18n="cardReadingText">摘录、词汇、句型、复述和主题总结。</p>
+          </article>
+          <article class="card" data-category="thinking">
+            <span data-i18n="cardThinkingKind">思维模型</span>
+            <h3 data-i18n="cardThinkingTitle">第一性原理</h3>
+            <p data-i18n="cardThinkingText">把复杂问题拆回基本事实，再重新组织判断。</p>
+          </article>
         </div>
       </section>
 
       <article id="note" class="note section">
         <p class="eyebrow" data-i18n="featuredEyebrow">精选笔记</p>
         <h2 data-i18n="hardwareTitle">什么是计算机硬件？</h2>
-        <div class="summary"><h3 data-i18n="summaryTitle">一句话定义</h3><p data-i18n-html="summaryText">计算机硬件指组成计算机系统的<strong>物理部件</strong>，负责输入、输出、处理、存储和通信；软件则是告诉硬件做什么的程序和指令。</p></div>
+        <div class="summary">
+          <h3 data-i18n="summaryTitle">一句话定义</h3>
+          <p data-i18n-html="summaryText">计算机硬件指组成计算机系统的<strong>物理部件</strong>，负责输入、输出、处理、存储和通信；软件则是告诉硬件做什么的程序和指令。</p>
+        </div>
         <div class="grid">
           <section><strong>01</strong><h3 data-i18n="coreTitle">核心四件套</h3><p data-i18n-html="coreText"><strong>CPU</strong> 处理指令，<strong>RAM</strong> 临时保存数据，<strong>存储设备</strong> 长期保存文件，<strong>主板</strong> 连接组件。</p></section>
           <section><strong>02</strong><h3 data-i18n="ioTitle">输入与输出</h3><p data-i18n="ioText">键盘、鼠标是输入设备；显示器、打印机、扬声器是输出设备。</p></section>
@@ -52,7 +98,11 @@
         </div>
       </article>
 
-      <section id="review" class="review section"><h2 data-i18n="reviewTitle">今天只要捡起一点点</h2><button id="reviewButton" data-i18n="reviewButton">抽一张复习卡</button><p id="reviewPrompt"></p></section>
+      <section id="review" class="review section">
+        <h2 data-i18n="reviewTitle">今天只要捡起一点点</h2>
+        <button id="reviewButton" type="button" data-i18n="reviewButton">抽一张复习卡</button>
+        <p id="reviewPrompt"></p>
+      </section>
     </main>
 
     <footer data-i18n="footerText">为长期学习准备的温和起点。</footer>
