@@ -141,7 +141,7 @@
                 <button class="filter-chip" type="button" data-filter="thinking" data-i18n="filterThinking">思维</button>
               </div>
 
-              <div class="max-w-sm mx-auto grid gap-6 md:grid-cols-3 lg:grid-cols-3 items-stretch md:max-w-2xl lg:max-w-none">
+              <div class="max-w-sm mx-auto grid gap-6 md:grid-cols-2 lg:grid-cols-4 items-stretch md:max-w-3xl lg:max-w-none">
                 <a class="relative flex flex-col items-center p-6 bg-white rounded shadow-xl note-card" href="#featured-note" data-category="computer">
                   <div class="w-16 h-16 p-1 -mt-1 mb-2">
                     <svg class="w-16 h-16" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg"><rect class="fill-current text-blue-600" width="64" height="64" rx="32"/><path class="stroke-current text-white" d="M20 26h24M20 34h24M20 42h16" stroke-width="2" fill="none"/></svg>
@@ -149,6 +149,15 @@
                   <span class="text-sm font-semibold text-blue-600 mb-2" data-i18n="cardHardwareKind">计算机基础</span>
                   <h3 class="h4 mb-2 text-center" data-i18n="cardHardwareTitle">什么是计算机硬件？</h3>
                   <p class="text-lg text-gray-600 text-center" data-i18n="cardHardwareText">硬件定义、内部与外部组件、机械硬盘与固态硬盘、硬件与软件辨析。</p>
+                </a>
+
+                <a class="relative flex flex-col items-center p-6 bg-white rounded shadow-xl note-card" href="#network-connections" data-category="computer">
+                  <div class="w-16 h-16 p-1 -mt-1 mb-2">
+                    <svg class="w-16 h-16" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg"><rect class="fill-current text-blue-700" width="64" height="64" rx="32"/><path class="stroke-current text-white" d="M20 24h24M22 40h20M24 24v16M40 24v16M32 18v8M32 38v8" stroke-width="2" fill="none"/></svg>
+                  </div>
+                  <span class="text-sm font-semibold text-blue-700 mb-2" data-i18n="cardNetworkKind">计算机网络</span>
+                  <h3 class="h4 mb-2 text-center" data-i18n="cardNetworkTitle">网络连接类型</h3>
+                  <p class="text-lg text-gray-600 text-center" data-i18n="cardNetworkText">有线、无线、卫星、移动、VPN 和 LAN 的选择速记。</p>
                 </a>
 
                 <article class="relative flex flex-col items-center p-6 bg-white rounded shadow-xl note-card" data-category="language">
@@ -205,6 +214,64 @@
                 <div class="review-card"><span>02</span><h3 data-i18n="inputTitle">输入与输出</h3><p data-i18n="inputText">键盘、鼠标、触摸屏、扫描仪属于输入设备；显示器、打印机、扬声器属于输出设备。</p></div>
                 <div class="review-card"><span>03</span><h3 data-i18n="networkTitle">网络硬件</h3><p data-i18n="networkText">路由器、交换机、调制解调器、网卡让设备进入局域网或互联网。</p></div>
                 <div class="review-card"><span>04</span><h3 data-i18n="businessTitle">企业场景</h3><p data-i18n="businessText">服务器、存储系统和网络设备支撑数据流、云服务和自动化。</p></div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="network-connections">
+          <div class="max-w-6xl mx-auto px-4 sm:px-6">
+            <div class="py-12 md:py-20 border-t border-gray-200">
+              <div class="max-w-3xl mx-auto text-center pb-12 md:pb-16">
+                <div class="text-xl font-semibold text-blue-600 mb-2" data-i18n="networkNoteEyebrow">今日笔记 · 2026-05-08</div>
+                <h2 class="h2 mb-4" data-i18n="networkNoteTitle">Network connection types explained</h2>
+                <p class="text-xl text-gray-600" data-i18n="networkNoteIntro">网络连接可以先分成有线和无线：有线通常更稳定，无线更灵活；卫星、移动网络、VPN 和 LAN 则分别解决远程覆盖、安全和局域互联的问题。</p>
+                <p class="text-sm text-gray-500 mt-4" data-i18n="networkSource">整理自 Ugnė Zieniūtė / NordVPN，原文日期 2025-04-08；这里按学习笔记重排。</p>
+              </div>
+
+              <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+                <article class="review-card">
+                  <span>01</span>
+                  <h3 data-i18n="netWiredTitle">有线连接</h3>
+                  <p data-i18n="netWiredText">Cable、DSL、ISDN 都依赖物理线路。Cable 可到 10 Mbps-1 Gbps；DSL 常见 5-120 Mbps；ISDN 较慢且逐渐淘汰。</p>
+                </article>
+                <article class="review-card">
+                  <span>02</span>
+                  <h3 data-i18n="netWirelessTitle">无线连接</h3>
+                  <p data-i18n="netWirelessText">Wi-Fi 靠路由器无线覆盖，适合家庭和办公；蜂窝网络依赖 3G、4G、5G 基站，移动性强，但速度受距离、频段和信号影响。</p>
+                </article>
+                <article class="review-card">
+                  <span>03</span>
+                  <h3 data-i18n="netSatelliteTitle">卫星连接</h3>
+                  <p data-i18n="netSatelliteText">卫星适合宽带难以覆盖的地区，不需要地下或架空线路。新一代服务可达约 200 Mbps，但价格、延迟和稳定性仍要权衡。</p>
+                </article>
+                <article class="review-card">
+                  <span>04</span>
+                  <h3 data-i18n="netBroadbandTitle">宽带与移动</h3>
+                  <p data-i18n="netBroadbandText">宽带是高速接入的 umbrella term，常覆盖 cable、DSL、光纤等；移动连接强调随身上网，通常通过蜂窝网络或 Wi-Fi 完成。</p>
+                </article>
+                <article class="review-card">
+                  <span>05</span>
+                  <h3 data-i18n="netVpnTitle">VPN 连接</h3>
+                  <p data-i18n="netVpnText">VPN 不是 ISP，而是在现有连接上建立加密隧道，用来保护流量、隐藏真实 IP，并降低公共网络中的隐私风险。</p>
+                </article>
+                <article class="review-card">
+                  <span>06</span>
+                  <h3 data-i18n="netLanTitle">局域网 LAN</h3>
+                  <p data-i18n="netLanText">LAN 是家庭、办公室或校园里的本地网络，让同一地点的设备互联。它不同于面向高速存储访问的 SAN。</p>
+                </article>
+              </div>
+
+              <div class="mt-10 md:mt-12 bg-gray-100 rounded px-6 py-6 md:px-8">
+                <h3 class="h4 mb-4" data-i18n="netChooseTitle">怎么选：先问六个问题</h3>
+                <div class="grid gap-3 sm:grid-cols-2 lg:grid-cols-3 text-gray-600">
+                  <p data-i18n-html="netChooseSpeed"><strong>速度：</strong>游戏、视频会议和多人家庭更需要高带宽。</p>
+                  <p data-i18n-html="netChooseCost"><strong>成本：</strong>便宜套餐可能有低速或流量上限， premium 套餐性能更强。</p>
+                  <p data-i18n-html="netChooseReliability"><strong>可靠性：</strong>远程工作和企业场景优先考虑光纤或有线。</p>
+                  <p data-i18n-html="netChooseData"><strong>流量：</strong>高清视频、云文件和大下载更适合无限或高流量套餐。</p>
+                  <p data-i18n-html="netChooseAvailability"><strong>可用性：</strong>城市可选项更多，乡村可能依赖卫星或移动网络。</p>
+                  <p data-i18n-html="netChooseSecurity"><strong>安全：</strong>光纤和有线更难被截获；无线网络要配合强密码、防火墙和 VPN。</p>
+                </div>
               </div>
             </div>
           </div>
