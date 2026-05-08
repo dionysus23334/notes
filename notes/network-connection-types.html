@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <title>网络连接类型 | 温习小屋</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="../css/vendors/aos.css" rel="stylesheet" />
+    <link href="../style.css" rel="stylesheet" />
+    <link href="../notes.css" rel="stylesheet" />
+  </head>
+  <body class="font-inter antialiased bg-white text-gray-900 tracking-tight">
+    <div class="flex flex-col min-h-screen overflow-hidden">
+      <header class="absolute w-full z-30">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6">
+          <div class="flex items-center justify-between h-20">
+            <a class="block" href="../index.html" aria-label="返回首页"><div class="w-8 h-8 rounded-full bg-gradient-to-tr from-blue-600 to-teal-400"></div></a>
+            <nav class="hidden md:flex md:grow">
+              <ul class="flex grow justify-end flex-wrap items-center">
+                <li><a class="nav-link" href="../index.html#gallery">画廊</a></li>
+                <li><a class="nav-link" href="../index.html#paths">路径</a></li>
+                <li><a class="btn-sm text-gray-200 bg-gray-900 hover:bg-gray-800 ml-3" href="../index.html">返回首页</a></li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+      </header>
+
+      <main class="grow">
+        <section>
+          <div class="max-w-6xl mx-auto px-4 sm:px-6">
+            <div class="pt-32 pb-12 md:pt-40 md:pb-20">
+              <div class="max-w-3xl mx-auto lg:max-w-none">
+                <article>
+                  <header class="max-w-3xl mx-auto mb-16 text-center">
+                    <div class="text-xl font-semibold text-blue-600 mb-2">今日笔记 · 2026-05-08</div>
+                    <h1 class="h1 mb-4">Network connection types explained</h1>
+                    <p class="text-xl text-gray-600">网络连接先分成有线和无线；卫星、移动、VPN 和 LAN 则分别解决覆盖、安全和局域互联的问题。</p>
+                    <p class="text-sm text-gray-500 mt-4">整理自 Ugnė Zieniūtė / NordVPN，原文日期 2025-04-08；这里按学习笔记重排。</p>
+                  </header>
+
+                  <div class="lg:flex lg:justify-between">
+                    <aside class="relative hidden lg:block w-64 mr-20 shrink-0">
+                      <div class="sticky top-28">
+                        <h4 class="text-lg font-bold leading-snug tracking-tight mb-4">目录</h4>
+                        <ul class="font-medium -my-1">
+                          <li class="py-1"><a class="flex items-center hover:underline" href="#overview"><span>总览</span></a></li>
+                          <li class="py-1"><a class="flex items-center hover:underline" href="#wired"><span>有线连接</span></a></li>
+                          <li class="py-1"><a class="flex items-center hover:underline" href="#wireless"><span>无线连接</span></a></li>
+                          <li class="py-1"><a class="flex items-center hover:underline" href="#special"><span>卫星、移动、VPN、LAN</span></a></li>
+                          <li class="py-1"><a class="flex items-center hover:underline" href="#choose"><span>怎么选</span></a></li>
+                        </ul>
+                      </div>
+                    </aside>
+
+                    <div>
+                      <div class="flex items-center mb-6">
+                        <div class="flex shrink-0 mr-3"><img class="relative rounded-full" src="../images/news-author-04.jpg" width="32" height="32" alt="Author" /></div>
+                        <div><span class="text-gray-600">By </span><span class="font-medium">温习小屋</span><span class="text-gray-600"> · 2026-05-08</span></div>
+                      </div>
+                      <hr class="w-16 h-px pt-px bg-gray-200 border-0 mb-6" />
+
+                      <div class="text-lg text-gray-600">
+                        <p id="overview" class="mb-8" style="scroll-margin-top: 100px;">选择网络连接，本质是在<strong class="font-medium text-gray-900">速度、稳定性、成本、覆盖范围和安全性</strong>之间做权衡。有线连接通常更快更稳定，无线连接更灵活；偏远地区可能依赖卫星或移动网络；VPN 则是在现有连接上额外加安全层。</p>
+                        <figure class="mb-8"><img class="w-full rounded" src="../images/news-single.jpg" width="768" height="432" alt="Network connection visual" /></figure>
+
+                        <h3 id="wired" class="h3 text-gray-900 mb-4" style="scroll-margin-top: 100px;">有线连接</h3>
+                        <ul class="list-disc list-inside mb-8">
+                          <li class="mb-2"><strong class="font-medium text-gray-900">Cable</strong>：使用有线电视同轴电缆接入互联网，常见速度约 10 Mbps 到 1 Gbps。</li>
+                          <li class="mb-2"><strong class="font-medium text-gray-900">DSL</strong>：通过电话线传输互联网信号，可同时打电话和上网，常见速度约 5 到 120 Mbps。</li>
+                          <li class="mb-2"><strong class="font-medium text-gray-900">ISDN</strong>：较早的数字电话网络系统，速度约 64 Kbps 到 2 Mbps，成本高且逐渐退出主流。</li>
+                        </ul>
+
+                        <h3 id="wireless" class="h3 text-gray-900 mb-4" style="scroll-margin-top: 100px;">无线连接</h3>
+                        <p class="mb-8">Wi-Fi 通过路由器或接入点发射无线信号，适合家庭、办公室和学校。蜂窝网络依赖 3G、4G、5G 基站，覆盖范围更广，适合移动场景。5G 的速度差异很大：低频段覆盖好，中频段速度均衡，毫米波速度高但范围短。</p>
+
+                        <h3 id="special" class="h3 text-gray-900 mb-4" style="scroll-margin-top: 100px;">卫星、移动、VPN、LAN</h3>
+                        <ul class="list-disc list-inside mb-8">
+                          <li class="mb-2"><strong class="font-medium text-gray-900">卫星</strong>：适合宽带难以覆盖的地区，新一代服务可接近 200 Mbps，但延迟、价格和稳定性要权衡。</li>
+                          <li class="mb-2"><strong class="font-medium text-gray-900">移动连接</strong>：移动设备通过蜂窝网络或 Wi-Fi 上网，强调随时随地访问。</li>
+                          <li class="mb-2"><strong class="font-medium text-gray-900">VPN</strong>：不是网络运营商，而是在现有连接上建立加密隧道，保护流量和 IP 隐私。</li>
+                          <li class="mb-2"><strong class="font-medium text-gray-900">LAN</strong>：家庭、办公室或校园里的本地网络，让同一地点设备互联；它不同于专门服务存储访问的 SAN。</li>
+                        </ul>
+
+                        <h3 id="choose" class="h3 text-gray-900 mb-4" style="scroll-margin-top: 100px;">怎么选</h3>
+                        <p class="mb-8">如果你重视远程办公、企业稳定性和低故障率，优先看光纤或其他有线连接；如果你重视移动性，选择蜂窝网络或稳定的 Wi-Fi；如果你在偏远地区，卫星可能是现实选择。安全方面，光纤和有线更难被截获，无线网络要配合强密码、防火墙和 VPN。</p>
+                        <p class="p-4 bg-gray-100 border border-gray-300 rounded mb-8"><strong class="font-medium text-gray-900">速记：</strong>固定位置看稳定，移动场景看覆盖，偏远地区看卫星，公共网络加 VPN。</p>
+                        <div class="mt-8"><a class="inline-flex items-center text-base text-blue-600 font-medium hover:underline" href="../index.html#gallery">返回笔记画廊</a></div>
+                      </div>
+                    </div>
+                  </div>
+                </article>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+    <script src="../js/vendors/aos.js"></script>
+    <script src="../js/main.js"></script>
+  </body>
+</html>
