@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <title>莱布尼茨算子 | 温习小屋</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="../css/vendors/aos.css" rel="stylesheet" />
+    <link href="../style.css" rel="stylesheet" />
+    <link href="../notes.css" rel="stylesheet" />
+    <script>
+      window.MathJax = {
+        tex: {
+          inlineMath: [["\\(", "\\)"]],
+          displayMath: [["\\[", "\\]"]],
+          processEscapes: true
+        },
+        svg: { fontCache: "none" }
+      };
+    </script>
+    <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+  </head>
+  <body class="font-inter antialiased bg-white text-gray-900 tracking-tight">
+    <div class="flex flex-col min-h-screen overflow-hidden">
+      <header class="absolute w-full z-30">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6">
+          <div class="flex items-center justify-between h-20">
+            <a class="block" href="../index.html" aria-label="返回首页">
+              <div class="w-8 h-8 rounded-full bg-gradient-to-tr from-blue-600 to-teal-400"></div>
+            </a>
+            <nav class="hidden md:flex md:grow">
+              <ul class="flex grow justify-end flex-wrap items-center">
+                <li><a class="nav-link" href="../index.html#gallery">画廊</a></li>
+                <li><a class="nav-link" href="../index.html#paths">路径</a></li>
+                <li><a class="btn-sm text-gray-200 bg-gray-900 hover:bg-gray-800 ml-3" href="../index.html">返回首页</a></li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+      </header>
+
+      <main class="grow">
+        <section>
+          <div class="max-w-6xl mx-auto px-4 sm:px-6">
+            <div class="pt-32 pb-12 md:pt-40 md:pb-20">
+              <div class="max-w-3xl mx-auto lg:max-w-none">
+                <article>
+                  <header class="max-w-3xl mx-auto mb-16 text-center">
+                    <div class="text-xl font-semibold text-teal-600 mb-2">数学分析 · 算子笔记</div>
+                    <h1 class="h1 mb-4">莱布尼茨<span class="bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-teal-400">算子</span></h1>
+                    <p class="text-xl text-gray-600">在实直线 M = R 上，任意一阶线性且满足乘积法则的算子，本质上都是一个光滑向量场作用在函数上。</p>
+                  </header>
+
+                  <div class="lg:flex lg:justify-between">
+                    <aside class="relative hidden lg:block w-64 mr-20 shrink-0">
+                      <div class="sticky top-28">
+                        <h4 class="text-lg font-bold leading-snug tracking-tight mb-4">目录</h4>
+                        <ul class="font-medium -my-1">
+                          <li class="py-1"><a class="hover:underline" href="#statement">命题</a></li>
+                          <li class="py-1"><a class="hover:underline" href="#conditions">条件</a></li>
+                          <li class="py-1"><a class="hover:underline" href="#constants">先证常数</a></li>
+                          <li class="py-1"><a class="hover:underline" href="#decompose">局部坐标分解</a></li>
+                          <li class="py-1"><a class="hover:underline" href="#operator">作用算子</a></li>
+                          <li class="py-1"><a class="hover:underline" href="#conclusion">结论</a></li>
+                        </ul>
+                      </div>
+                    </aside>
+
+                    <div>
+                      <div class="flex items-center mb-6">
+                        <div class="flex shrink-0 mr-3"><img class="relative rounded-full" src="../images/news-author-04.jpg" width="32" height="32" alt="Author" /></div>
+                        <div><span class="text-gray-600">By </span><span class="font-medium">温习小屋</span><span class="text-gray-600"> · 2026-05-08</span></div>
+                      </div>
+                      <hr class="w-16 h-px pt-px bg-gray-200 border-0 mb-6" />
+
+                      <div class="text-lg text-gray-600 math-note">
+                        <h3 id="statement" class="h3 text-gray-900 mb-4" style="scroll-margin-top: 100px;">命题</h3>
+                        <p class="mb-6">设</p>
+                        <div class="math-box mb-8">
+                          \[
+                            D:C^\infty(\mathbb{R})\to C^\infty(\mathbb{R})
+                          \]
+                          <p class="mb-0">为实线性算子，并满足莱布尼茨法则：</p>
+                          \[
+                            D(fg)=fDg+gDf,\qquad f,g\in C^\infty(\mathbb{R}).
+                          \]
+                        </div>
+                        <p class="mb-4">目标是证明：存在光滑函数 xi，使得对任意光滑函数 f，都有</p>
+                        \[
+                          Df=\xi f'.
+                        \]
+
+                        <h3 id="conditions" class="h3 text-gray-900 mb-4" style="scroll-margin-top: 100px;">1. 条件罗列</h3>
+                        <p class="mb-4">算子 D 满足两个核心条件：</p>
+                        <p class="mb-2"><strong class="font-medium text-gray-900">实线性：</strong>对任意实数 alpha、beta 与光滑函数 f、g，</p>
+                        \[
+                          D(\alpha f+\beta g)=\alpha Df+\beta Dg.
+                        \]
+                        <p class="mb-2"><strong class="font-medium text-gray-900">莱布尼茨法则：</strong>对任意光滑函数 f、g，</p>
+                        \[
+                          D(fg)=fDg+gDf.
+                        \]
+
+                        <h3 id="constants" class="h3 text-gray-900 mb-4" style="scroll-margin-top: 100px;">2. 先证：D 零化常数函数</h3>
+                        <p class="mb-4">设 f 恒等于常数 c。因为常数函数可以写成 c 乘以常值函数 1，所以由莱布尼茨法则得到</p>
+                        \[
+                          D(c\cdot 1)=cD1+1\cdot Dc.
+                        \]
+                        <p class="mb-4">另一方面，由线性性可得</p>
+                        \[
+                          D(c\cdot 1)=cD1.
+                        \]
+                        <p class="mb-4">两式相减得到</p>
+                        \[
+                          Dc=0.
+                        \]
+                        <p class="p-4 bg-gray-100 border border-gray-300 rounded mb-8">因此，任意常光滑函数都会被 D 送到零。</p>
+
+                        <h3 id="decompose" class="h3 text-gray-900 mb-4" style="scroll-margin-top: 100px;">3. 一维光滑函数标准分解</h3>
+                        <p class="mb-4">对任意光滑函数 f，固定点 x，有恒等式：</p>
+                        \[
+                          f(y)=f(x)+(y-x)\int_0^1 f'(x+s(y-x))\,ds.
+                        \]
+                        <p class="mb-4">把自变量写成 y，参数点写成 x，得到</p>
+                        \[
+                          f(y)=f(x)+(y-x)h_x(y),
+                        \]
+                        <p class="mb-4">其中</p>
+                        \[
+                          h_x(y)=\int_0^1 f'(x+s(y-x))\,ds.
+                        \]
+                        <p class="mb-8">固定 x 时，函数 h_x 也是光滑函数，并且在 x 点取值等于 f 的导数。这一步的意思是：在点 x 附近，函数可以拆成“常数项 + 一阶线性因子”。</p>
+
+                        <h3 id="operator" class="h3 text-gray-900 mb-4" style="scroll-margin-top: 100px;">4. 作用算子 D</h3>
+                        <p class="mb-4">对分解式作用 D：</p>
+                        \[
+                          Df=D(f(x)\cdot 1)+D\big((y-x)h_x(y)\big).
+                        \]
+                        <p class="mb-4">第一项是常数，已经证明为 0。第二项使用莱布尼茨法则：</p>
+                        \[
+                          D\big((y-x)h_x\big)=D(y-x)\cdot h_x+(y-x)Dh_x.
+                        \]
+                        <p class="mb-4">现在令 y = x 看逐点取值。第二项在 y = x 处消失，于是</p>
+                        \[
+                          Df(x)=D(y-x)(x)\,h_x(x).
+                        \]
+                        <p class="mb-4">记</p>
+                        \[
+                          \xi(x):=D(\operatorname{id})(x).
+                        \]
+                        <p class="mb-4">又因为常数部分会被 D 杀掉，所以</p>
+                        \[
+                          D(y-x)(x)=\xi(x).
+                        \]
+                        <p class="mb-8">再由 h_x 在 x 点取值等于 f 的导数，得到</p>
+                        \[
+                          Df(x)=\xi(x)f'(x).
+                        \]
+
+                        <h3 id="conclusion" class="h3 text-gray-900 mb-4" style="scroll-margin-top: 100px;">5. 光滑性与结论</h3>
+                        <p class="mb-4">因为 D 把光滑函数送到光滑函数，而恒等函数 id(x)=x 是光滑函数，所以</p>
+                        \[
+                          \xi=D(\operatorname{id})\in C^\infty(\mathbb{R}).
+                        \]
+                        <p class="mb-4">因此，在实直线 M = R 上，任意满足条件的算子一定是</p>
+                        <div class="math-box mb-8">
+                          \[
+                            D=\xi(x)\frac{d}{dx},\qquad \xi\in C^\infty(\mathbb{R}).
+                          \]
+                        </div>
+                        <p class="mb-8">这和点导子、向量场的语言完全平行：点导子的系数是一个常数，向量场算子的系数是一个光滑函数。公理形式完全一样，只是从“常数系数”推广到了“光滑函数系数”。</p>
+                        <div class="mt-8"><a class="inline-flex items-center text-base text-blue-600 font-medium hover:underline" href="../index.html#gallery">返回笔记画廊</a></div>
+                      </div>
+                    </div>
+                  </div>
+                </article>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+    <script src="../js/vendors/aos.js"></script>
+    <script src="../js/main.js"></script>
+  </body>
+</html>
