@@ -82,13 +82,22 @@
 }
 
 .note-card {
+  width: 100%;
+  min-height: 17.5rem;
+  justify-content: flex-start;
+  transform-origin: center;
   transition:
     transform 180ms ease,
     box-shadow 180ms ease;
 }
 
 .note-card:hover {
-  transform: translateY(-4px);
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.18);
+}
+
+.note-card p {
+  max-width: 18rem;
 }
 
 .review-card {
