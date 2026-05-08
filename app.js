@@ -9,7 +9,7 @@ const dictionary = {
     navPaths: "路径",
     navReview: "复习",
     eyebrow: "双语知识画廊",
-    heroTitle: "把知识做成可以慢慢逛的画廊。",
+    heroTitle: "把知识做成可以慢慢逛的|画廊。",
     heroText: "每篇笔记都像一张作品卡：主题清楚、重点可扫、复习入口固定。上百篇内容也不需要把导航栏挤满。",
     startReading: "进入画廊",
     seeFeatured: "查看精选",
@@ -20,7 +20,7 @@ const dictionary = {
     sceneThreeKind: "思维训练",
     sceneThreeTitle: "模型",
     galleryEyebrow: "笔记画廊",
-    galleryTitle: "所有笔记先进入画廊，再进入详情",
+    galleryTitle: "所有笔记先进入画廊，再进入|详情",
     galleryText: "顶部导航只放长期稳定的入口；具体笔记通过卡片、标签、路径和搜索来管理。",
     filterAll: "全部",
     filterComputer: "计算机",
@@ -45,7 +45,7 @@ const dictionary = {
     cardTime6: "6 分钟",
     cardComingSoon: "待整理",
     featuredEyebrow: "精选笔记",
-    hardwareTitle: "什么是计算机硬件？",
+    hardwareTitle: "什么是计算机|硬件？",
     hardwareTag: "计算机基础",
     summaryTitle: "一句话定义",
     summaryText: "计算机硬件指组成计算机系统的<strong>物理部件</strong>，负责输入、输出、处理、存储和通信；软件则是告诉硬件做什么的程序和指令。",
@@ -58,7 +58,7 @@ const dictionary = {
     networkTitle: "网络硬件",
     networkText: "路由器、交换机、调制解调器、网卡让设备进入局域网或互联网，完成数据交换和系统通信。",
     networkNoteEyebrow: "今日笔记 · 2026-05-08",
-    networkNoteTitle: "Network connection types explained",
+    networkNoteTitle: "Network connection types |explained",
     networkNoteIntro: "网络连接可以先分成有线和无线：有线通常更稳定，无线更灵活；卫星、移动网络、VPN 和 LAN 则分别解决远程覆盖、安全和局域互联的问题。",
     networkSource: "整理自 Ugnė Zieniūtė / NordVPN，原文日期 2025-04-08；这里按学习笔记重排。",
     netWiredTitle: "有线连接",
@@ -83,13 +83,13 @@ const dictionary = {
     businessTitle: "企业场景",
     businessText: "企业硬件包括服务器、存储系统和网络设备，支撑数据流、云服务、人工智能计算和自动化。",
     pathsEyebrow: "学习路径",
-    pathsTitle: "画廊负责收纳，路径负责推进",
+    pathsTitle: "画廊负责收纳，路径负责|推进",
     pathsText: "一篇笔记可以同时属于多个路径。以后可以按主题、阶段、考试、项目来组织，不需要改变顶部导航。",
     pathOne: "计算机基础",
     pathTwo: "英语阅读",
     pathThree: "思维模型",
     reviewEyebrow: "温柔复习",
-    reviewTitle: "今天只要捡起一点点",
+    reviewTitle: "今天只要捡起|一点点",
     reviewButton: "抽一张复习卡",
     footerText: "为长期学习准备的温和起点。",
     prompts: [
@@ -109,7 +109,7 @@ const dictionary = {
     navPaths: "Paths",
     navReview: "Review",
     eyebrow: "Bilingual Knowledge Gallery",
-    heroTitle: "A calm gallery for notes.",
+    heroTitle: "A calm gallery for |notes.",
     heroText: "Each note becomes a clear card with a topic, quick scan points, and a fixed review entry. Hundreds of notes can live here without crowding the nav.",
     startReading: "Enter Gallery",
     seeFeatured: "View Featured",
@@ -120,7 +120,7 @@ const dictionary = {
     sceneThreeKind: "Thinking",
     sceneThreeTitle: "Models",
     galleryEyebrow: "Note Gallery",
-    galleryTitle: "Notes live in the gallery before opening into detail",
+    galleryTitle: "Notes live in the gallery before opening into |detail",
     galleryText: "The top navigation stays stable. Individual notes are managed by cards, tags, paths, and search.",
     filterAll: "All",
     filterComputer: "Computer",
@@ -145,7 +145,7 @@ const dictionary = {
     cardTime6: "6 min",
     cardComingSoon: "Coming soon",
     featuredEyebrow: "Featured Review",
-    hardwareTitle: "What is computer hardware?",
+    hardwareTitle: "What is computer |hardware?",
     hardwareTag: "Computer Basics",
     summaryTitle: "One-sentence definition",
     summaryText: "Computer hardware means the <strong>physical components</strong> that make up a computer system and handle input, output, processing, storage, and communication. Software is the set of programs and instructions that tells hardware what to do.",
@@ -158,7 +158,7 @@ const dictionary = {
     networkTitle: "Networking hardware",
     networkText: "Routers, switches, modems, and network interface cards connect devices to local networks or the internet for data exchange and system communication.",
     networkNoteEyebrow: "Today Note · May 8, 2026",
-    networkNoteTitle: "Network connection types explained",
+    networkNoteTitle: "Network connection types |explained",
     networkNoteIntro: "Network connections can first be split into wired and wireless. Wired options are usually steadier, wireless options are more flexible, and satellite, mobile, VPN, and LAN each solve coverage, security, or local access problems.",
     networkSource: "Adapted from Ugnė Zieniūtė / NordVPN, original date Apr 8, 2025, and reshaped as a study note.",
     netWiredTitle: "Wired connections",
@@ -183,13 +183,13 @@ const dictionary = {
     businessTitle: "Business context",
     businessText: "Enterprise hardware includes servers, storage systems, and networking equipment that support data flow, cloud services, AI computing, and automation.",
     pathsEyebrow: "Learning Paths",
-    pathsTitle: "Gallery stores notes. Paths move learning forward.",
+    pathsTitle: "Gallery stores notes. Paths move learning |forward.",
     pathsText: "One note can belong to multiple paths. Later you can organize by topic, stage, exam, or project without changing the top nav.",
     pathOne: "Computer Basics",
     pathTwo: "English Reading",
     pathThree: "Mental Models",
     reviewEyebrow: "Gentle Review",
-    reviewTitle: "Pick up just one small thing today",
+    reviewTitle: "Pick up just one small thing |today",
     reviewButton: "Draw a Review Card",
     footerText: "A soft starting point for long-term learning.",
     prompts: [
@@ -215,11 +215,22 @@ const reviewPrompt = document.querySelector("#reviewPrompt");
 const storedLanguage = localStorage.getItem("study-nook-language") || "zh";
 const storedTheme = localStorage.getItem("study-nook-theme") || "day";
 
+function renderAccentTitle(value) {
+  const [head, tail] = value.split("|");
+  if (!tail) return value;
+  return `${head}<span class="bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-teal-400">${tail}</span>`;
+}
+
 function applyLanguage(language) {
   const labels = dictionary[language];
   html.lang = language === "zh" ? "zh-CN" : "en";
 
-  document.querySelectorAll("[data-i18n]").forEach((node) => {
+  document.querySelectorAll("[data-i18n-accent]").forEach((node) => {
+    const value = labels[node.dataset.i18nAccent];
+    if (value) node.innerHTML = renderAccentTitle(value);
+  });
+
+  document.querySelectorAll("[data-i18n]:not([data-i18n-accent])").forEach((node) => {
     const value = labels[node.dataset.i18n];
     if (value) node.textContent = value;
   });
