@@ -100,6 +100,34 @@
   max-width: 18rem;
 }
 
+.note-page-controls {
+  position: fixed;
+  top: 5.25rem;
+  right: 1rem;
+  z-index: 50;
+  display: flex;
+  gap: 0.5rem;
+}
+
+.note-page-controls button {
+  border-radius: 0.25rem;
+  border: 1px solid #dfdfdf;
+  background: rgba(255, 255, 255, 0.92);
+  padding: 0.45rem 0.75rem;
+  color: #191919;
+  font-weight: 800;
+  box-shadow: 0 10px 20px rgba(25, 25, 25, 0.08);
+  transition:
+    background 150ms ease,
+    border-color 150ms ease,
+    color 150ms ease;
+}
+
+.note-page-controls button:hover {
+  border-color: #338cf5;
+  color: #0064da;
+}
+
 .notes-gallery-grid {
   grid-template-columns: 1fr;
 }
@@ -209,6 +237,12 @@
 
 .night-mode .bg-gray-100 {
   background: #111827;
+}
+
+.night-mode .note-page-controls button {
+  border-color: #374151;
+  background: rgba(31, 41, 55, 0.94);
+  color: #f9fafb;
 }
 
 .night-mode .border-gray-200 {

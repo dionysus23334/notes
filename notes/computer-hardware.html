@@ -9,6 +9,10 @@
     <link href="../notes.css" rel="stylesheet" />
   </head>
   <body class="font-inter antialiased bg-white text-gray-900 tracking-tight">
+    <div class="note-page-controls" aria-label="Page controls">
+      <button type="button" data-note-language-toggle>EN</button>
+      <button type="button" data-note-theme-toggle>Night</button>
+    </div>
     <div class="flex flex-col min-h-screen overflow-hidden">
       <header class="absolute w-full z-30">
         <div class="max-w-6xl mx-auto px-4 sm:px-6">
@@ -102,5 +106,6 @@
     </div>
     <script src="../js/vendors/aos.js"></script>
     <script src="../js/main.js"></script>
+    <script src="../note-controls.js"></script>
   </body>
 </html>
