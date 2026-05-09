@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <title>操作系统基本概念 | 温习小屋</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="../css/vendors/aos.css" rel="stylesheet" />
+    <link href="../style.css" rel="stylesheet" />
+    <link href="../notes.css" rel="stylesheet" />
+  </head>
+  <body class="font-inter antialiased bg-white text-gray-900 tracking-tight">
+    <div class="flex flex-col min-h-screen overflow-hidden">
+      <header class="absolute w-full z-30">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6">
+          <div class="flex items-center justify-between h-20">
+            <a class="block" href="../index.html" aria-label="返回首页">
+              <div class="w-8 h-8 rounded-full bg-gradient-to-tr from-blue-600 to-teal-400"></div>
+            </a>
+            <nav class="hidden md:flex md:grow">
+              <ul class="flex grow justify-end flex-wrap items-center">
+                <li><a class="nav-link" href="../index.html#gallery">画廊</a></li>
+                <li><a class="nav-link" href="../index.html#paths">路径</a></li>
+                <li><a class="btn-sm text-gray-200 bg-gray-900 hover:bg-gray-800 ml-3" href="../index.html">返回首页</a></li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+      </header>
+
+      <main class="grow">
+        <section>
+          <div class="max-w-6xl mx-auto px-4 sm:px-6">
+            <div class="pt-32 pb-12 md:pt-40 md:pb-20">
+              <div class="max-w-3xl mx-auto lg:max-w-none">
+                <article>
+                  <header class="max-w-3xl mx-auto mb-16 text-center">
+                    <div class="text-xl font-semibold text-blue-600 mb-2">计算机基础 · 操作系统</div>
+                    <h1 class="h1 mb-4">操作系统基本<span class="bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-teal-400">概念</span></h1>
+                    <p class="text-xl text-gray-600">操作系统是最基本的系统软件：它管理硬件和软件资源，组织程序运行，并为用户和其他软件提供方便的接口与环境。</p>
+                  </header>
+
+                  <div class="lg:flex lg:justify-between">
+                    <aside class="relative hidden lg:block w-64 mr-20 shrink-0">
+                      <div class="sticky top-28">
+                        <h4 class="text-lg font-bold leading-snug tracking-tight mb-4">目录</h4>
+                        <ul class="font-medium -my-1">
+                          <li class="py-1"><a class="hover:underline" href="#definition">定义</a></li>
+                          <li class="py-1"><a class="hover:underline" href="#traits">四大特征</a></li>
+                          <li class="py-1"><a class="hover:underline" href="#concurrency">并发与并行</a></li>
+                          <li class="py-1"><a class="hover:underline" href="#sharing">共享</a></li>
+                          <li class="py-1"><a class="hover:underline" href="#virtual">虚拟与异步</a></li>
+                          <li class="py-1"><a class="hover:underline" href="#functions">功能</a></li>
+                          <li class="py-1"><a class="hover:underline" href="#interfaces">接口</a></li>
+                          <li class="py-1"><a class="hover:underline" href="#machine">扩充机器</a></li>
+                        </ul>
+                      </div>
+                    </aside>
+
+                    <div>
+                      <div class="flex items-center mb-6">
+                        <div class="flex shrink-0 mr-3"><img class="relative rounded-full" src="../images/news-author-04.jpg" width="32" height="32" alt="Author" /></div>
+                        <div><span class="text-gray-600">By </span><span class="font-medium">温习小屋</span><span class="text-gray-600"> · 2026-05-09</span></div>
+                      </div>
+                      <hr class="w-16 h-px pt-px bg-gray-200 border-0 mb-6" />
+
+                      <div class="text-lg text-gray-600">
+                        <h3 id="definition" class="h3 text-gray-900 mb-4" style="scroll-margin-top: 100px;">1. 定义</h3>
+                        <p class="mb-8">操作系统（Operating System，OS）控制和管理整个计算机系统的硬件与软件资源，合理组织计算机工作，调度资源分配，并向用户和其他软件提供方便的接口与运行环境。它是计算机系统中最基本的系统软件。</p>
+                        <p class="p-4 bg-gray-100 border border-gray-300 rounded mb-8"><strong class="font-medium text-gray-900">一句话：</strong>OS 站在硬件和应用之间，向下管理资源，向上提供服务。</p>
+
+                        <h3 id="traits" class="h3 text-gray-900 mb-4" style="scroll-margin-top: 100px;">2. 四大特征</h3>
+                        <div class="grid gap-6 md:grid-cols-2 mb-8">
+                          <div class="review-card"><span>01</span><h3>并发</h3><p>多个事件在同一时间间隔内发生。宏观上像是同时进行，微观上可能是交替执行。</p></div>
+                          <div class="review-card"><span>02</span><h3>共享</h3><p>系统资源可供内存中多个并发执行的进程共同使用。</p></div>
+                          <div class="review-card"><span>03</span><h3>虚拟</h3><p>把一个物理实体变成若干个逻辑对应物，让用户感受到更丰富的资源。</p></div>
+                          <div class="review-card"><span>04</span><h3>异步</h3><p>多道程序走走停停，以不可预知的速度向前推进。</p></div>
+                        </div>
+
+                        <h3 id="concurrency" class="h3 text-gray-900 mb-4" style="scroll-margin-top: 100px;">3. 并发与并行</h3>
+                        <p class="mb-4">并发是两个或多个事件在同一时间间隔内发生。OS 的并发性通常通过分时实现：单核 CPU 同一时刻只能执行一个程序，各程序只能交替执行；多核 CPU 同一时刻可以执行多个程序，因此多个程序可以并行执行。</p>
+                        <ul class="list-disc list-inside mb-8">
+                          <li class="mb-2"><strong class="font-medium text-gray-900">并发性：</strong>两个或多个事件在同一时间间隔内发生。</li>
+                          <li class="mb-2"><strong class="font-medium text-gray-900">并行性：</strong>两个或多个事件在同一时刻发生，需要多流水线或多处理机等硬件支持。</li>
+                          <li class="mb-2"><strong class="font-medium text-gray-900">多道程序环境：</strong>宏观上多道程序同时执行；单处理机下，微观上仍是分时交替执行。</li>
+                        </ul>
+
+                        <h3 id="sharing" class="h3 text-gray-900 mb-4" style="scroll-margin-top: 100px;">4. 共享</h3>
+                        <p class="mb-4">共享即资源共享，指系统中的资源可供多个并发执行的进程共同使用。</p>
+                        <ul class="list-disc list-inside mb-8">
+                          <li class="mb-2"><strong class="font-medium text-gray-900">互斥共享：</strong>某些资源可被多个进程使用，但同一时间段只允许一个进程访问。例如 QQ 和微信视频不能同时占用同一个摄像头。</li>
+                          <li class="mb-2"><strong class="font-medium text-gray-900">同时共享：</strong>某些资源允许一个时间段内由多个进程“同时”访问。例如 QQ 发文件 A、微信发文件 B，宏观上都在读硬盘，微观上可能交替访问。</li>
+                        </ul>
+                        <p class="p-4 bg-gray-100 border border-gray-300 rounded mb-8">并发和共享是操作系统最基本的两个特征。资源共享以程序并发为条件；如果系统不能有效管理共享，也会反过来破坏并发执行。</p>
+
+                        <h3 id="virtual" class="h3 text-gray-900 mb-4" style="scroll-margin-top: 100px;">5. 虚拟与异步</h3>
+                        <p class="mb-4">虚拟指把一个物理实体变成多个逻辑对应物。物理实体真实存在，逻辑对应物是用户感受到的资源。</p>
+                        <ul class="list-disc list-inside mb-8">
+                          <li class="mb-2"><strong class="font-medium text-gray-900">虚拟处理器：</strong>通过时分复用，让多道程序分时使用一个处理器，使每个用户感觉有 CPU 专门为自己服务。</li>
+                          <li class="mb-2"><strong class="font-medium text-gray-900">虚拟存储器：</strong>通过空分复用，把物理存储器扩展成逻辑上的更大存储空间。</li>
+                          <li class="mb-2"><strong class="font-medium text-gray-900">虚拟 I/O 设备：</strong>把一个物理 I/O 设备虚拟成多个逻辑设备，让临界资源变成可共享资源。</li>
+                          <li class="mb-2"><strong class="font-medium text-gray-900">异步性：</strong>多道程序因资源有限而走走停停，进程推进速度不可预知。</li>
+                        </ul>
+
+                        <h3 id="functions" class="h3 text-gray-900 mb-4" style="scroll-margin-top: 100px;">6. 操作系统的功能</h3>
+                        <p class="mb-4">为了给多道程序提供良好的运行环境，操作系统要管理处理机、存储器、文件和设备，并提供用户接口。也可以说，操作系统是系统资源的管理者。</p>
+                        <div class="grid gap-6 md:grid-cols-2 mb-8">
+                          <div class="review-card"><span>CPU</span><h3>处理机管理</h3><p>对进程进行管理，包括进程控制、同步、通信、死锁处理和处理机调度。</p></div>
+                          <div class="review-card"><span>MEM</span><h3>存储器管理</h3><p>包括内存分配与回收、地址映射、内存保护与共享、内存扩充。</p></div>
+                          <div class="review-card"><span>FILE</span><h3>文件管理</h3><p>通过文件系统管理文件存储空间、目录、文件读写和保护。</p></div>
+                          <div class="review-card"><span>I/O</span><h3>设备管理</h3><p>完成 I/O 请求，提高设备利用率，包括缓冲管理、设备分配、设备处理和虚拟设备。</p></div>
+                        </div>
+
+                        <h3 id="interfaces" class="h3 text-gray-900 mb-4" style="scroll-margin-top: 100px;">7. 向上提供接口</h3>
+                        <ul class="list-disc list-inside mb-8">
+                          <li class="mb-2"><strong class="font-medium text-gray-900">联机命令接口：</strong>交互式接口，适用于分时或实时系统。用户说一句，系统做一件并反馈。</li>
+                          <li class="mb-2"><strong class="font-medium text-gray-900">脱机命令接口：</strong>批处理接口，适用于批处理系统。用户把命令写成清单，系统逐条执行。</li>
+                          <li class="mb-2"><strong class="font-medium text-gray-900">程序接口：</strong>由系统调用组成，也称广义指令，是给程序员使用的接口。普通用户通常通过程序代码间接使用。</li>
+                          <li class="mb-2"><strong class="font-medium text-gray-900">GUI：</strong>图形化用户接口，让用户用图形界面操作，不必记忆复杂命令和参数。</li>
+                        </ul>
+
+                        <h3 id="machine" class="h3 text-gray-900 mb-4" style="scroll-margin-top: 100px;">8. 最接近硬件的软件</h3>
+                        <p class="mb-4">没有任何软件支持的计算机称为裸机，它只构成计算机系统的物质基础。在裸机上安装操作系统后，系统获得资源管理和方便用户使用的服务能力。</p>
+                        <p class="p-4 bg-gray-100 border border-gray-300 rounded mb-8">覆盖了软件的机器通常称为扩充机器，也称虚拟机。OS 的价值，就是把难用的裸机改造成更强、更方便、更高效的机器。</p>
+                        <div class="mt-8"><a class="inline-flex items-center text-base text-blue-600 font-medium hover:underline" href="../index.html#gallery">返回笔记画廊</a></div>
+                      </div>
+                    </div>
+                  </div>
+                </article>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+    <script src="../js/vendors/aos.js"></script>
+    <script src="../js/main.js"></script>
+  </body>
+</html>
